@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  rdb:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 5432:5432
+    restart: always
+    volumes:
+      - postgres_data_ms_rag_example:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: rag_app
+
+volumes:
+  postgres_data_ms_rag_example:
